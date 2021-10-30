@@ -59,10 +59,14 @@ from typing import Any, List
 # * `get_balance`
 # * `send_transaction`
 
+from crypto_wallet import generate_account, get_balance, send_transaction
+
 # 4. Within the Streamlit sidebar section of code, create a variable named
 # `account`. Set this variable equal to a call on the `generate_account`
 # function. This function will create the Fintech Finder customer’s (in this
 # case, your) HD wallet and Ethereum account.
+
+
 
 # 5. Within this same section of the `fintech_finder.py` file, define a
 # new `st.sidebar.write` function that will display the balance of the
@@ -130,7 +134,7 @@ st.sidebar.markdown("## Client Account Address and Ethernet Balance in Ether")
 
 # @TODO:
 #  Call the `generate_account` function and save it as the variable `account`
-# YOUR CODE HERE
+account = generate_account()
 
 ##########################################
 
@@ -146,8 +150,9 @@ st.sidebar.write(account.address)
 # @TODO
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
-# YOUR CODE HERE
+ether_balance = get_balance(account.address)
 
+st.sidebar.write(ether_balance)
 ##########################################
 
 # Create a select box to chose a FinTech Hire candidate
